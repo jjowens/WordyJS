@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="public/wordy/wordy.min.js"></script>
+
+    <script type="text/javascript">
+        function testWordy() {
+            updateTextBox(1, 'BackToFront', '');
+            updateTextBox(2, 'ReverseWordsInText', '');
+            updateTextBox(3, 'ReverseText', '');
+            updateTextBox(4, 'CountWords', '');
+            updateTextBox(5, 'GetLength', '');
+            updateTextBox(6, 'CountLetters', '');
+            updateTextBox(7, 'ContainsVowels', '');
+            updateTextBox(8, 'ContainsWord', 'car');
+            updateTextBox(9, 'SortText', '');
+            updateTextBox(10, 'Slug', '');
+            updateTextBox(11, 'GetFirstLetters', '');
+            updateTextBox(12, 'GetLastLetters', '');
+            updateTextBox(13, 'StripNumeric', '');
+        }
+
+        function updateTextBox(inputNo, methodName, newObj) {
+            var inputInputName = 'txtInput' + inputNo;
+            var outputName = 'txtOutput' + inputNo;
+            var txtVal = getTextboxValue(inputInputName);
+
+            var labName = 'labMethod' + inputNo;
+            var lab = document.getElementById(labName);
+
+            if (lab) {
+                var labText = methodName;
+                if (newObj !== '') {
+                    labText = methodName + ' \'' + newObj + '\'';
+                }
+
+                lab.innerText = labText;
+            }
+
+            methodName = methodName.toLowerCase();
+
+            switch(methodName) {
+                case "backtofront":
+                    results = wordy().Text().BackToFront(txtVal);
+                    break;
+                case "reversetext":
+                    results = wordy().Text().ReverseText(txtVal);
+                    break;
+                case "reversewordsintext":
+                    results = wordy().Text().ReverseWordsInText(txtVal);
+                    break;
+                case "countwords":
+                    results = wordy().Counter().CountWords(txtVal);
+                    break;
+                case "containsvowels":
+                    results = wordy().Text().ContainsVowels(txtVal);
+                    break;
+                case "countletters":
+                    results = wordy().Counter().CountLetters(txtVal);
+                    break;
+                case "getlength":
+                    results = wordy().Counter().GetLength(txtVal);
+                    break;
+                case "containsword":
+                    results = wordy().Text().ContainsWord(txtVal, newObj);
+                    break;
+                case "sorttext":
+                    results = wordy().Text().SortText(txtVal);
+                    break;
+                case "slug":
+                    results = wordy().Text().ConvertToURLSlug(txtVal);
+                    break;
+                case "getfirstletters":
+                    results = wordy().Text().GetFirstLetters(txtVal);
+                    break;
+                case "getlastletters":
+                    results = wordy().Text().GetLastLetters(txtVal);
+                    break;
+                case "stripnumeric":
+                    results = wordy().Text().StripNumeric(txtVal);
+                    break;
+                default:
+                    results = "Method " + methodName + " not recognised";
+                    break;
+            }
+
+            setTextboxValue(outputName, results);
+        }
+
+        function getTextboxValue(inputName) {
+            return document.getElementById(inputName).value;
+        }
+
+        function setTextboxValue(inputName, val) {
+            document.getElementById(inputName).value = val;
+        }
+
+        function preloadTextBoxes() {
+            var dummyText = document.getElementById("txtDummyText").value;
+
+            var total = document.getElementsByName('txtInput').length;
+
+            for(var i=1; i <= total; i++) {
+                var inputName = "txtInput" + i;
+
+                var txtBox = document.getElementById(inputName);
+
+                if (txtBox) {
+                    txtBox.value = dummyText;
+                }
+            }
+        }
+
+        function runWordy() {
+            preloadTextBoxes();
+            testWordy();
+        }
+    </script>
+
+</head>
+<body>
+
+<h2>Test Results</h2>
+<input id="txtDummyText" name="txtDummyText" type="text" size="45%" value="A fox jumped over the brown fence"/>
+<button type="button" onclick="runWordy()">Test</button>
+<table>
+    <tr>
+        <td><input id="txtInput1" name="txtInput" type="text" size="45%"/></td>
+        <td><label id="labMethod1">Method</label></td>
+        <td><input id="txtOutput1" name="txtOutput1" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput2" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod2">Method</label></td>
+        <td><input id="txtOutput2" name="txtOutput2" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput3" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod3">Method</label></td>
+        <td><input id="txtOutput3" name="txtOutput3" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput4" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod4">Method</label></td>
+        <td><input id="txtOutput4" name="txtOutput4" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput5" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod5">Method</label></td>
+        <td><input id="txtOutput5" name="txtOutput5" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput6" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod6">Method</label></td>
+        <td><input id="txtOutput6" name="txtOutput6" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput7" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod7">Method</label></td>
+        <td><input id="txtOutput7" name="txtOutput7" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput8" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod8">Method</label></td>
+        <td><input id="txtOutput8" name="txtOutput8" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput9" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod9">Method</label></td>
+        <td><input id="txtOutput9" name="txtOutput9" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput10" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod10">Method</label></td>
+        <td><input id="txtOutput10" name="txtOutput10" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput11" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod11">Method</label></td>
+        <td><input id="txtOutput11" name="txtOutput11" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput12" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod12">Method</label></td>
+        <td><input id="txtOutput12" name="txtOutput12" type="text" size="45%" /></td>
+    </tr>
+    <tr>
+        <td><input id="txtInput13" name="txtInput" type="text" size="45%" /></td>
+        <td><label id="labMethod13">Method</label></td>
+        <td><input id="txtOutput13" name="txtOutput13" type="text" size="45%" /></td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    runWordy();
+</script>
+</body>
+</html>

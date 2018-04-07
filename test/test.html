@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="public/wordy/wordy.min.js"></script>
+
+    <script type="text/javascript">
+
+        function testWordy() {
+            var foo = new wordy();
+            var textVal = 'The fox jumped over the brown fence';
+
+            results = foo.Text().ReverseWords(textVal);
+            console.log("ReverseWords " + results);
+
+            results = foo.Text().ReverseText(textVal);
+            console.log("ReverseText " + results);
+
+            results = foo.Text().ReverseWordsInText(textVal);
+            console.log("ReverseWordsInText " + results);
+
+            results = foo.Counter().CountWords(textVal);
+            console.log("CountWords: " + results);
+
+            results = foo.Text().ContainsVowels(textVal);
+            console.log("ContainsVowels: " + results);
+
+            results = foo.Text().ContainsVowels("Sky");
+            console.log("ContainsVowels: " + results);
+        }
+
+        testWordy();
+    </script>
+
+</head>
+<body>
+
+See results below! (or not)...
+<input type="text" id="txtBox1" name="txtBox" width="50%" />
+
+<input type="text" id="txtBox2" name="txtBox" width="50%" />
+</body>
+</html>
