@@ -20,7 +20,7 @@ You can do the following
 
 # Code Example Below
 
-'''javascript
+```javascript
 <script type="text/javascript" src="public/wordy/wordy.min.js"></script>
 
 function testWordy(arg) {
@@ -68,4 +68,4 @@ function testWordy(arg) {
 	// returns foxes jumped over the brown fence
 	console.log(wordy().Text().StripNumeric('6 foxes jumped over the brown fence'));
 }
-'''
+```
