@@ -3,6 +3,8 @@ A Javascript module to maniplate text and checks the number of characters.
 
 This is the Javascript version of my CSharp library, Wordy. It won't have all of the equivalent functions in this verison.
 
+You can use the wordy.mini.js version which is a minified version of the file in the source code
+
 You can do the following
 
 * Change text back to front - Example - 'A fox jumped over the brown fence' changes to 'fence brown the over jumped fox A'
@@ -21,9 +23,9 @@ You can do the following
 # Code Example Below
 
 ```javascript
-<script type="text/javascript" src="public/wordy/wordy.min.js"></script>
+<script type="text/javascript" src="wordy.min.js"></script>
 
-function testWordy(arg) {
+function testWordy() {
 	var txtVal = 'A fox jumped over the brown fence'
 
 	// returns fence brown the over jumped fox A
